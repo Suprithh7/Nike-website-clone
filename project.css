@@ -1,0 +1,222 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    transition: background 0.3s, color 0.3s;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background: black;
+    color: white;
+    position: relative;
+}
+
+header .logo img {
+    height: 40px;
+    filter: invert(100%);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background: white;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-out;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+#theme-toggle {
+    background: black;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Dropdown in Desktop */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 30px;
+    background: black;
+    border-radius: 5px;
+    flex-direction: column;
+    min-width: 150px;
+    z-index: 10;
+}
+
+.dropdown-content li {
+    list-style: none;
+}
+
+.dropdown-content a {
+    padding: 10px 15px;
+    display: block;
+    color: white;
+}
+
+.dropdown-content a:hover {
+    background: gray;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: flex;
+}
+
+/* Shoe Cards */
+section {
+    padding: 40px;
+    text-align: center;
+}
+
+.shoe-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.shoe-card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.shoe-card:hover {
+    transform: scale(1.05);
+}
+
+.shoe-card img {
+    width: 100%;
+}
+
+.shoe-card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Forms */
+form {
+    max-width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dark Mode */
+.dark-mode {
+    background: #121212;
+    color: white;
+}
+
+.dark-mode .shoe-card {
+    background: #1e1e1e;
+}
+
+.dark-mode nav a {
+    color: white;
+}
+
+.dark-mode #theme-toggle {
+    background: black;
+    color: white;
+    border: 1px solid white;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+    margin-left: 10px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 15px;
+    top: 60px;
+    background: black;
+    border-radius: 5px;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.dropdown-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background: gray;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+    }
+}
